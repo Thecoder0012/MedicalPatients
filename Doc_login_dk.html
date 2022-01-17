@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kroniske sygdomme er et problem - Log ind skærm</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="A description"/>
+    <script type="text/javascript">
+
+    /* Denne variabel sørger for at beskeden der vises når et forkert input er regisreret ikke printes mere end én gang */
+    var counter = 0
+
+    /* Funktionen tjekker om det registrerede ID og kodeord er i databasen.
+    Går til næste side hvis de er fundet i databasen, ellers printes der en fejlmeddelelse at brugeren ikke kan logge ind med det registrerede input */
+    function checker(){
+        var id = document.getElementById("ID").value;
+        var pw = document.getElementById("Password").value;
+        /* Når databasen er sat op, skal dette ændres */
+        var Database = [['Generic user name', '1234'],['Gamey boi', '133742069'],['Admin', '0000'],['Idk', '1 I guess']]
+
+        /* for loop som går igennem databasen og tjekker om inputtet er i databasen */
+        for(let len = 0; len<Database.length; len++){
+            if(id === Database[len][0] && pw === Database[len][1]){
+                /* Hvis inputtet er korrekt, så gå til næste side */
+                window.location = "Doc_info_side.html";
+            }
+        }
+
+        /* Hvis et ugyldigt input er registreret, så hvis en fejlmeddelelse */
+        if(counter===0){
+            counter++;
+            document.getElementById("Wrong").appendChild(document.createTextNode("That is not a valid input."));
+        }
+    }
+    </script>
+</head>
+
+<!-- Dette håndtere baggrundsbilledet og dens størrelse -->
+<style>
+    body{
+        background-image: url("baggrund.jpg");
+        background-repeat: no-repeat;
+        background-size: 2000px 1000px ;
+    }
+</style>
+
+<!-- Den overordnede font størrelse af tekst på siden -->
+<style>*{
+    font-size: 1.2vw;
+}</style>
+
+<!-- Dette håndtere de forskellige egenskaber af den øverste bjælke på siden -->
+<style>
+    /* Standard egenskaber for bjælken */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Standard egenskaber for knapper på bjælken */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Farve skift når der svæves over knapper forskelligt fra hoved knappen */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Specielle egenskaber for hoved knappen */
+.topnav a.active {
+    background-color: transparent;
+    color: white;
+}
+</style>
+
+<!-- Begyndelsen af kroppen af siden samt font typen der vil blive brugt på siden -->
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    <!-- Den øverste bjælke laves samt knapper som vises på bjælken -->
+    <div class="topnav">
+        <a class="active" href="startside.html">Start</a>
+        <a href="infoDK.html">Mere info</a>
+    </div>
+
+    <!-- Laver en knap, illustreret som et flag, der skifter sproger når man trykker på den -->
+    <div style = "position: fixed; right: 25px; top: 18px; background-color: transparent;">
+        <a href="Doc_login.html">
+        <img src="flagUK.png" width="25" height="15">
+        </a>
+    </div>
+
+    <!-- Input for bruger id -->
+    <h3 style="position: relative; left: 250px; top: 120px;"> Bruger ID </h3>
+    <input type="text" name="UserID" id="ID" value="" style="position: relative; left: 250px; top: 120px;"/>
+    <br/>
+    <!-- Input for kodeord -->
+    <h3 style="position: relative; left: 250px; top: 140px;"> Kodeord </h3>
+    <input type="text" name="Password" id="Password" value="" style="position: relative;left:250px; top: 140px;"/>
+    <br/>
+    <br/>
+    <!-- Dette resevere plads på siden til at fortælle at et forkert input er registreret -->
+    <p id="Wrong" style="position: relative; left: 250px; top: 130px; color: red;"></p>
+    <br/>
+    <!-- Laver en knap som enten går til en ny side eller viser beskeden om at et forkert input er registreret, når knappen trykkes -->
+    <button onclick="checker()" style="position: relative;left:250px; top: 140px;">Log ind</button>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chronic diseases is a problem</title>
+    <script type="text/javascript">
+
+    /* Temporary databases for submitted entries */
+    /* var Info = [["Kevin McCallister.", "Macaulay_Culkin@real_mail.com.", "All alone. Big house. Little kid.", "Burglars.", "I wished my family would disappear, and they did."],
+                ["Luke Skywalker.", "Mark_Hamill@real_mail.com.", "Never knew his parents. Was guided by an old guy in a desert and an even older one in a swamp. His father is still alive", "Daddy issues.", "No. NO. It's not true. That's impossible."],
+                // ["Patient 0.","Patient_0@mail.com","Trouble breathing. Coughs. Muscle weakness. Tired all the time.","Corona","Did a reverse Dracula"]
+            ]; */
+    var Info = [["Patient 0.","Patient_0@mail.com","Trouble breathing. Coughs. Muscle weakness. Tired all the time.","Corona","Bit a bat"],
+                ["Ordinary person.","Very_sick@mail.com","Headache.","Not sick","I feel sick"],
+                // ["Man with COPD.","Some_guy@mail.com","Trouble breathing. Coughs. Smokes cigarettes.","COPD",""]
+            ];
+    
+    /* Function that, once called, goes to a new page */
+    function Next_page(){
+        window.location = "frontpage.html";
+    }
+
+    /* Function that is responsible for loading in all submitted entries onto the page */
+    function MakeForm(){
+        /* for loop that loops depending on the number of submitted entries */
+        for(let i=1;i<=Info.length;i++){
+            /* This creates html code that makes a horizontal line */
+            document.getElementById("new").appendChild(document.createElement("hr"));
+
+            /* This creates html code that starts a list and gives the list an id */
+            var list = document.createElement("ul");
+            list.setAttribute("id","screen"+i);
+            document.getElementById("new").appendChild(list);
+
+            /* This creates html code that makes an element in the list, gives it an id and creates text that will be displayed on the element */
+            var element = document.createElement("li");
+            element.setAttribute("id","eleName"+i);
+            element.appendChild(document.createTextNode("Patients name: "));
+            document.getElementById("screen"+i).appendChild(element);
+            
+            /* This creates html code that makes an element in the list, gives it an id and creates text that will be displayed on the element */
+            var element = document.createElement("li");
+            element.setAttribute("id","eleMail"+i);
+            element.appendChild(document.createTextNode("Patients mail: "));
+            document.getElementById("screen"+i).appendChild(element);
+            
+            /* This creates html code that makes an element in the list, gives it an id and creates text that will be displayed on the element */
+            var element = document.createElement("li");
+            element.setAttribute("id","eleSymptom"+i);
+            element.appendChild(document.createTextNode("Symptoms: "));
+            document.getElementById("screen"+i).appendChild(element);
+            
+            /* This creates html code that makes an element in the list, gives it an id and creates text that will be displayed on the element */
+            var element = document.createElement("li");
+            element.setAttribute("id","eleDisease"+i);
+            element.appendChild(document.createTextNode("Possible disease: "));
+            document.getElementById("screen"+i).appendChild(element);
+            
+            /* This creates html code that makes an element in the list, gives it an id and creates text that will be displayed on the element */
+            var element = document.createElement("li");
+            element.setAttribute("id","eleComment"+i);
+            element.appendChild(document.createTextNode("Comment: "));
+            document.getElementById("screen"+i).appendChild(element);
+
+            /* This creates html code that makes a button, that when clicked deletes the whole list, that it is displayed with */
+            var delete_button = document.createElement("button");
+            delete_button.setAttribute("id","del"+i);
+            delete_button.setAttribute("onclick","Delete("+i+")");
+            delete_button.setAttribute("style","color: red;");
+            delete_button.appendChild(document.createTextNode("X Delete"));
+            document.getElementById("new").appendChild(delete_button);
+
+            Data(i);
+        }
+    }
+
+    /* This function takes info from the database and adds it to the respective places in the list */
+    function Data(i){
+        document.getElementById("eleName"+i).innerHTML += Info[i-1][0]
+        document.getElementById("eleMail"+i).innerHTML += Info[i-1][1]
+        document.getElementById("eleSymptom"+i).innerHTML += Info[i-1][2]
+        document.getElementById("eleDisease"+i).innerHTML += Info[i-1][3]
+        document.getElementById("eleComment"+i).innerHTML += Info[i-1][4]
+    }
+
+    /* Function that deletes the list when called */
+    function Delete(i){
+        document.getElementById("screen"+i).remove();
+        document.getElementById("del"+i).remove();
+    }
+    </script>
+</head>
+
+<!-- This handles the background immage and its size -->
+<style>
+body{
+    background-image: url("baggrund.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 1000px ;
+}
+</style>
+
+<!-- The overall font size of text on the page -->
+<style>*{
+    font-size: 1.2vw;
+}
+</style>
+
+<!-- This handles the properties of the top bar on the site -->
+<style>
+/* The default properties of the bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Default properties of the buttons on the bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Color change when hovering over buttons different from the main button */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Special properties of the main button */
+.topnav a.active {
+    background-color: transparent;
+    color: white;
+}
+</style>
+
+<!-- Begining of the body of the site and the chosen font for text on the site -->
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    <!-- The top bar is created along with buttons that will be represented on the bar -->
+    <div class="topnav">
+        <a class="active" href="frontpage.html">Home</a>
+        <a href="infoUK.html">More info</a>
+    </div>
+
+    <!-- Making a button illustrated by a flag that changes the language when pressed -->
+    <div style = "position:fixed; right:25px; top:18px; background-color:transparent;">
+        <a href="Doc_info_side.html">
+        <img src="flagDK.jpg" width="25" height="15">
+        </a>
+    </div>
+    
+    <!-- Positions the body of the page -->
+    <h1 style="font-size: 2vw; position: relative; left:10px;"> Info about patients</h1>
+    <br/> 
+    <h3 style="position:relative; left:10px;"> List of submitted entries:</h3> 
+    <!-- Creates a placeholder for the lists to be placed --> 
+    <div id="new">
+    </div>
+    <!-- Run the code that writes the lists -->
+    <script>
+        MakeForm();
+    </script>
+    <hr>
+    <br>
+    <!-- Button that takes the user back to the front page -->
+    <button onclick="Next_page()" style="position:relative; left:300px; top: 40px; font-size: 2vw;">Log out</button>
+</body>
+</html>

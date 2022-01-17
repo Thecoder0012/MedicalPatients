@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Am I sick?</title>
+</head>
+
+<!-- This handles the background immage and its size -->
+<style>
+body{
+	background-image: url("baggrund.jpg");
+	background-repeat: no-repeat;
+	background-size: 2000px 1000px ;
+}
+</style>
+
+<!-- The overall font size of text on the page -->			
+<style>*{
+	font-size: 1.2vw;
+}
+</style>
+
+<!-- This handles the properties of the top bar on the site -->
+<style>
+/* The default properties of the bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Default properties of the buttons on the bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Color change when hovering over buttons different from the main button */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Special properties of the main button */
+.topnav a.active {
+    background-color: transparent;
+    color: white;
+}
+</style>
+
+<!-- Begining of the body of the site and the chosen font for text on the site -->
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+
+<!-- The top bar is created along with buttons that will be represented on the bar -->
+<div class="topnav">
+	<a class="active" href="frontpage.html">Home</a>
+</div>
+
+<!-- Making a button illustrated by a flag that changes the language when pressed -->
+<div style = "position: fixed; right: 25px; top: 18px; background-color: transparent;">
+	<a href="endDK.html">
+	<img alt src="flagDK.jpg" width="25" height="15"></img>
+    </a>
+</div>
+
+<!-- Positions the body of the page -->
+<p style="position: fixed; left: 40px; top: 100px;">Thank you for your submission.
+<br>
+<br>Your entry has been saved and will be looked at by a doctor.
+<br>
+<br>To go back to the frontpage click the home button.
+</p>
+
+</body>
+</html>

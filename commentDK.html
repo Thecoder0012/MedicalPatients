@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="dk">
+
+<head>
+    <title>Nogle kommentarer?</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="A description"/>
+</head>
+
+<!-- Dette håndtere baggrundsbilledet og dens størrelse -->
+<style>
+body{
+    background-image: url("baggrund.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 1000px ;
+}
+</style>
+
+<!-- Den overordnede font størrelse af tekst på siden -->
+<style>*{
+    font-size: 1.2vw;
+}
+</style>
+
+<!-- Dette håndtere de forskellige egenskaber af den øverste bjælke på siden -->
+<style>
+/* Standard egenskaber for bjælken */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Standard egenskaber for knapper på bjælken */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Farve skift når der svæves over knapper forskelligt fra hoved knappen */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Specielle egenskaber for hoved knappen */
+.topnav a.active {
+    background-color: transparent;
+    color: white;
+}
+</style>
+
+<!-- Begyndelsen af kroppen af siden samt font typen der vil blive brugt på siden -->
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+
+<!-- Den øverste bjælke laves samt knapper som vises på bjælken -->
+<div class="topnav">
+    <a class="active" href="startside.html">Start</a>
+    <a href="infoDK.html">Mere info</a>
+</div>
+
+<!-- Laver en knap, illustreret som et flag, der skifter sproger når man trykker på den -->
+<div style = "position: fixed; right: 25px; top:18px; background-color:transparent;">
+    <a href="commentUK.html">
+    <img src="flagUK.png" width="25" height="15">
+    </a>
+</div>
+
+<!-- Pladsere kroppen af siden -->
+<div style="position: fixed; left: 40px; top: 130px;">
+    <!-- Laver et kommentar felt -->
+    <h1> Skriv dine kommentarer her: </h1>
+    <textarea cols="35" rows="7" name="Comment"></textarea>
+    <br>
+    <!-- Laver en indsendings knap -->
+    <a href="endDK.html"><button style="position: relative; left: 300px; top: 20px;">Indsend</button></a>
+</div>
+
+</body>
+</html>
