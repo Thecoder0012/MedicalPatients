@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="dk">
+<html lang="en">
 
 <head>
-	<title>Chronic Disease Diagnosis</title>
+    <title>Any comments?</title>
+    <script src="../scripts/questionaire.js"></script>
 </head>
 
 <!-- This handles the background immage and its size -->
 <style>
 body{
-    background-image: url("baggrund.jpg");
+    background-image: url("src/images/baggrund.jpg");
     background-repeat: no-repeat;
     background-size: 2000px 1000px ;
 }
@@ -57,30 +58,24 @@ body{
 <!-- The top bar is created along with buttons that will be represented on the bar -->
 <div class="topnav">
     <a class="active" href="frontpage.html">Home</a>
+    <a href="infoUK.html">More info</a>
 </div>
 
 <!-- Making a button illustrated by a flag that changes the language when pressed -->
 <div style = "position:fixed; right: 25px; top: 18px; background-color:transparent;">
-    <a href="infoDK.html">
-    <img src="flagDK.jpg" width="25" height="15">
+    <a href="commentDK.html">
+    <img src="../images/flagDK.jpg" width="25" height="15">
 	</a>
 </div>
 
-<h1 style="font-size: 2vw; position: relative; left: 20px; top: 10px;"> More about this site </h1>
-
-<!-- Creates and positions most of the body on the page -->
-<div style="position: relative; left: 40px; top: 10px;">
-<p>This site was built for diagnosing the diseases diabetes, COPD and cancer.
-<br>
-<br>These diseases can be difficult to diagnose, as they share some common symptoms. 
-<br>This site is therefore tasked with discovering the symptoms of online patients  
-<br>and help both patients, and hospitals with finding these diseases quicker 
-<br>and hopefully in the early stages.
-<br>
-<br>Therefore, the doctors will be more prepared when they call
-<br>the patients for a physical check-up,
-<br>because of the information this site provides them.
-</p>
+<!-- Positions the body of the page -->
+<div style="position: fixed; left: 40px; top: 130px;">
+	<!-- Making a comment field -->
+    <h1> Write your comments here: </h1>
+    <textarea cols="35" rows="7" name="Comment"></textarea>
+    <br>
+	<!-- Making a submition button -->
+    <!-- <a href="end.html"> --><button style="position: relative; left: 300px; top: 20px;" onclick = "storeData()">Submit</button><!-- </a> -->
 </div>
 
 </body>

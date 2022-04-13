@@ -2,7 +2,7 @@
 <html lang="dk">
 
 <head>
-	<title>Kronisk sygdom diagnose</title>
+    <title>Nogle kommentarer?</title>
     <meta charset="utf-8" />
     <meta name="description" content="A description"/>
 </head>
@@ -10,7 +10,7 @@
 <!-- Dette håndtere baggrundsbilledet og dens størrelse -->
 <style>
 body{
-    background-image: url("baggrund.jpg");
+    background-image: url("src/images/baggrund.jpg");
     background-repeat: no-repeat;
     background-size: 2000px 1000px ;
 }
@@ -19,7 +19,8 @@ body{
 <!-- Den overordnede font størrelse af tekst på siden -->
 <style>*{
     font-size: 1.2vw;
-}</style>
+}
+</style>
 
 <!-- Dette håndtere de forskellige egenskaber af den øverste bjælke på siden -->
 <style>
@@ -58,30 +59,24 @@ body{
 <!-- Den øverste bjælke laves samt knapper som vises på bjælken -->
 <div class="topnav">
     <a class="active" href="startside.html">Start</a>
+    <a href="infoDK.html">Mere info</a>
 </div>
 
 <!-- Laver en knap, illustreret som et flag, der skifter sproger når man trykker på den -->
 <div style = "position: fixed; right: 25px; top:18px; background-color:transparent;">
-    <a href="infoUK.html">
-    <img src="flagUK.png" width="25" height="15">
+    <a href="commentUK.html">
+    <img src="../images/flagUK.png" width="25" height="15">
     </a>
 </div>
 
-<h1 style="font-size: 2vw; position: relative; left: 20px; top: 10px;"> Mere om denne side </h1>
-
-<!-- Laver og pladsere det meste af kroppen på siden -->
-<div style="position: relative; left: 40px; top: 10px;">
-<p>Denne side blev lavet for at kunne diagnosticere de kroniske sygdomme diabetes, COPD og kræft.
-<br>
-<br>Disse sygdomme kan være svære at opfange, da de har nogle fælles symptomer. 
-<br>Denne side er derfor blevet bygget til at hjælpe læger med at lave en diagnose online,
-<br>som hjælper både patienter, og hospitaler med at opdage disse sygdomme hurtigere og
-<br>forhåbentlig stadig i dets tidlige stadier.
-<br>
-<br>Læger vil derfor være mere forberedte, når de får
-<br>patienter over til b.la. et fysisk check-up,
-<br>pågrund af den information denne side giver dem.
-</p>
+<!-- Pladsere kroppen af siden -->
+<div style="position: fixed; left: 40px; top: 130px;">
+    <!-- Laver et kommentar felt -->
+    <h1> Skriv dine kommentarer her: </h1>
+    <textarea cols="35" rows="7" name="Comment"></textarea>
+    <br>
+    <!-- Laver en indsendings knap -->
+    <a href="endDK.html"><button style="position: relative; left: 300px; top: 20px;">Indsend</button></a>
 </div>
 
 </body>

@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Any comments?</title>
-    <script src="Questionaire.js"></script>
+	<title>Chronic diseases diagnosis</title>
 </head>
 
 <!-- This handles the background immage and its size -->
 <style>
 body{
-    background-image: url("baggrund.jpg");
+    background-image: url("../images/baggrund.jpg");
     background-repeat: no-repeat;
     background-size: 2000px 1000px ;
 }
@@ -58,24 +57,35 @@ body{
 <!-- The top bar is created along with buttons that will be represented on the bar -->
 <div class="topnav">
     <a class="active" href="frontpage.html">Home</a>
+    <a href="Doc_login.html">Doctors login</a>
+    <a href="Doc_login.html">Patients login</a>
     <a href="infoUK.html">More info</a>
 </div>
 
 <!-- Making a button illustrated by a flag that changes the language when pressed -->
 <div style = "position:fixed; right: 25px; top: 18px; background-color:transparent;">
-    <a href="commentDK.html">
-    <img src="flagDK.jpg" width="25" height="15">
+    <a href="startside.html">
+    <img src="../images/flagDK.jpg" width="25" height="15">
 	</a>
 </div>
 
-<!-- Positions the body of the page -->
-<div style="position: fixed; left: 40px; top: 130px;">
-	<!-- Making a comment field -->
-    <h1> Write your comments here: </h1>
-    <textarea cols="35" rows="7" name="Comment"></textarea>
-    <br>
-	<!-- Making a submition button -->
-    <!-- <a href="end.html"> --><button style="position: relative; left: 300px; top: 20px;" onclick = "storeData()">Submit</button><!-- </a> -->
+<h1 style="font-size: 2vw; position: relative; left: 20px; top: 10px;"> Chronic Disease Diagnosis</h1>
+
+<!-- Creates and positions most of the body on the page -->
+<div style="position: relative; left: 40px; top: 10px;">
+<p>This is a online questionaire for diagnosing the chronic diseases, diabetes, cancer and COPD.
+<br>
+<br>The following questions should be answered truthfully to get the right diagnostic, and get the best results.
+</p>
+
+<div style="position: relative; left: 60px; top: 20px;">
+	<a href="questionaire.html"><button style="font-size: 1.5vw;">Take test</button></a>
+</div>
+
+<p style="position: relative; top: 40px;">If you have any further questions, comments or feedback, 
+<br>
+<br>there will be a comment box after the questionaire.
+</p>
 </div>
 
 </body>
