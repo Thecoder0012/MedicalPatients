@@ -1,0 +1,37 @@
+body {
+    background-image: url("/src/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 140%;
+}
+
+.header{
+    font-size: 2em;
+    padding: 2% 0 3% 0;
+}
+
+
+.container{
+    font-family: Serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+
+
+.button-container{
+    position: absolute;
+    right: 20px;
+    height: 3%;
+
+}
+.button-container button{
+    cursor: pointer;
+    background: cadetblue;
+    text-decoration: none;
+    border: none;
+    font-size: larger;
+    border-radius: 10px;
+    color: white;
+    height: 200%;
+}

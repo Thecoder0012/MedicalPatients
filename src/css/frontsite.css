@@ -1,0 +1,30 @@
+body {
+    background-image: url("/src/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 300%;
+}
+
+
+.text-container{
+    font-size: 1.3em;
+    font-family: Verdana;
+    font-weight: 400;
+    padding: 2% 2% 0 0;
+}
+.text-container h1{
+    position: relative;
+    margin-top: 1%;
+}
+
+.text-container button{
+    width: 10%;
+    height: 10%;
+    padding: 1%;
+    font-weight: 500;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: black;
+    cursor: pointer;
+}

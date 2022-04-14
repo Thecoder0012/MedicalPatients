@@ -61,7 +61,7 @@ function firstQuestion() {
 
     question = Database.questionFirst;
 
-    document.getElementById('QUESTION').innerHTML 
+    document.getElementById('question').innerHTML
         = question;
 
 }
@@ -208,8 +208,7 @@ function changePage(answer) {
                 question = storedQuestions[i];
                 console.log(COPDValue, " ", CancerValue, " ", DiabetesValue);
 
-                document.getElementById('QUESTION').innerHTML
-                    = question;
+                document.getElementById('question').innerHTML = question;
             }
         } 
     }
@@ -289,7 +288,7 @@ function stopProgram() {
 /* This function handles the removal of the questionnaire elements and replaces them with the comment parts and submission button. */
 function commentCreate() {
     if (go_to_comment == 1){
-        document.getElementById("Questionaire").remove();
+        document.getElementById("questionaire").remove();
 
         var commentTitle = document.getElementById("commentText")
         commentTitle.appendChild(document.createTextNode("Write your comments here:"))

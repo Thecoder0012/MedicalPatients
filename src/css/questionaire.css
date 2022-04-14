@@ -1,0 +1,16 @@
+body{
+    background-image: url("/src/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 380%;
+}
+
+#questionaire {
+    margin:5% 0 0 5%;
+}
+
+#questionaire .next{
+    width: 5%;
+    cursor: pointer;
+    position: relative;
+    right: 0.5%;
+}

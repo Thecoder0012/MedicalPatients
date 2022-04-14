@@ -7,20 +7,17 @@ const path = require('path');
 
 const app = express();
 
-var users=[];
+var users = [];
 var counter = 0;
 
 // Create connection
 const db = mysql.createConnection({
-    host        : 'localhost',
-    user        : 'root',
-    password    : 'password',
-    database    : 'hospitalmanagement'
+    host: 'localhost', user: 'root', password: 'password', database: 'hospitalmanagement'
 });
 
 // Connect
 db.connect((err) => {
-    if(err){
+    if (err) {
         throw err;
     }
     console.log("MySQL Connected...")
@@ -28,7 +25,7 @@ db.connect((err) => {
 
 
 // To support URL-encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // To parse cookies from the HTTP Request
 app.use(cookieParser());
@@ -60,44 +57,44 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/flagUK.png', function(req, res) {
+app.get('/flagUK.png', function (req, res) {
     res.sendFile(path.join(__dirname, '/flagUK.png'));
 });
-app.get('/flagDK.jpg', function(req, res) {
+app.get('/flagDK.jpg', function (req, res) {
     res.sendFile(path.join(__dirname, '/flagDK.jpg'));
 });
-app.get('/baggrund.jpg', function(req, res) {
-    res.sendFile(path.join(__dirname, '/baggrund.jpg'));
+app.get('/background.jpg', function (req, res) {
+    res.sendFile(path.join(__dirname, '/background.jpg'));
 });
 
 
-app.get('/frontpage.html', function(req, res) {
+app.get('/frontpage.html', function (req, res) {
     res.sendFile(path.join(__dirname, '/frontpage.html'));
 });
-app.get('/startside.html', function(req, res) {
+app.get('/startside.html', function (req, res) {
     res.sendFile(path.join(__dirname, '/startside.html'));
 });
 
-app.get('/Doc_login.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/Doc_login.html'));
+app.get('/doc-login-page.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/doc-login-page.html'));
 });
-app.get('/Doc_login_dk.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/Doc_login_dk.html'));
-});
-
-app.get('/infoUK.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/infoUK.html'));
-});
-app.get('/infoDK.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/infoDK.html'));
+app.get('/doc-login-side.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/doc-login-side.html'));
 });
 
-
-app.get('/Doc_info_page.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/Doc_info_page.html'));
+app.get('/info-page.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/info-page.html'));
 });
-app.get('/Doc_info_side.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/Doc_info_side.html'));
+app.get('/info-side.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/info-side.html'));
+});
+
+
+app.get('/doc-info-page.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/doc-info-page.html'));
+});
+app.get('/doc-info-side.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/doc-info-side.html'));
 });
 
 
@@ -105,15 +102,15 @@ app.get('/register', (req, res) => {
     res.render('register');
 });
 
-db.query("SELECT * FROM patient_login", function(err, result, fields) {
-    if(err) throw err;
+db.query("SELECT * FROM patient_login", function (err, result, fields) {
+    if (err) throw err;
     users = result;
 })
 
-setTimeout(function(){
+setTimeout(function () {
 
     app.post('/register', (req, res) => {
-        const { userName, password, confirmPassword } = req.body;
+        const {userName, password, confirmPassword} = req.body;
 
         // Check if the password and confirm password fields match
         if (password === confirmPassword) {
@@ -122,8 +119,7 @@ setTimeout(function(){
             if (users.find(user => user.userName === userName)) {
 
                 res.render('register', {
-                    message: 'User already registered.',
-                    messageClass: 'alert-danger'
+                    message: 'User already registered.', messageClass: 'alert-danger'
                 });
 
                 return;
@@ -131,23 +127,22 @@ setTimeout(function(){
 
             // Store user into the database if you are using one
             users.push({
-                userName,
-                password
+                userName, password
             });
 
-            let sql = `INSERT INTO patient_login(userID, userName, password) VALUES ('${users.length}', '${users[users.length-1].userName}', '${users[users.length-1].password}')`;
+            let sql = `INSERT INTO patient_login(userID, userName, password)
+                       VALUES ('${users.length}', '${users[users.length - 1].userName}',
+                               '${users[users.length - 1].password}')`;
             let query = db.query(sql, (err, result) => {
-                if(err) throw err;
-    })
+                if (err) throw err;
+            })
 
             res.render('login', {
-                message: 'Registration Complete. Please login to continue.',
-                messageClass: 'alert-success'
+                message: 'Registration Complete. Please login to continue.', messageClass: 'alert-success'
             });
         } else {
             res.render('register', {
-                message: 'Password does not match.',
-                messageClass: 'alert-danger'
+                message: 'Password does not match.', messageClass: 'alert-danger'
             });
         }
     });
@@ -162,7 +157,7 @@ setTimeout(function(){
     }
 
     app.post('/login', (req, res) => {
-        const { userName, password } = req.body;
+        const {userName, password} = req.body;
 
         const user = users.find(u => {
             return u.userName === userName && password === u.password
@@ -184,8 +179,7 @@ setTimeout(function(){
             res.redirect('/protected');
         } else {
             res.render('login', {
-                message: 'Invalid username or password',
-                messageClass: 'alert-danger'
+                message: 'Invalid username or password', messageClass: 'alert-danger'
             });
         }
     });
@@ -196,8 +190,7 @@ setTimeout(function(){
             res.render('protected');
         } else {
             res.render('login', {
-                message: 'Please login to continue',
-                messageClass: 'alert-danger'
+                message: 'Please login to continue', messageClass: 'alert-danger'
             });
         }
     });
@@ -206,20 +199,14 @@ setTimeout(function(){
         res.render('questionaire');
     });
 
-    app.get('/questionaire.js', function(req, res) {
+    app.get('/questionaire.js', function (req, res) {
         res.sendFile(path.join(__dirname, '/questionaire.js'));
     });
 
 }, 1000);
 
-// app.get('/Questionaire.html', function(req, res) {
-//     res.sendFile(path.join(__dirname, '/questionaire.html'));
-// });
-
-
-
-app.get('/end.html', function(req, res) {
-    res.sendFile(path.join(__dirname, '/end.html'));
+app.get('/last-page.html', function (req, res) {
+    res.sendFile(path.join(__dirname, '/last-page.html'));
 });
 
 

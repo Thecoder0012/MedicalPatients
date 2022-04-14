@@ -1,0 +1,14 @@
+body{
+    background-image: url("/src/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 330%;
+}
+
+
+.login-container{
+    margin: 5% 0 0 3%;
+}
+
+.login-container button{
+    cursor: pointer;
+}
